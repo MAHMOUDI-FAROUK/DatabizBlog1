@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Databiz Blog's website!{% endblock %}
+
+{% block body %}
+<style>
+ .articles{
+    border-radius:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    padding:16px 20px;
+ }
+
+  img{
+    border-radius:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    margin:10px;
+  }
+</style>
+<h1> Hello in Databiz Blog </h1>
+{% for article in articles %}
+<section class="articles">
+<article class="mb-5">
+<h2>{{article.title}}</h2>
+<div class="metadata">
+write on date {{article.createdAt | date('d-m-y')}} at {{article.createdAt | date('H:i')}}
+<span class="badge badge-danger">
+{{article.category.title}}
+</span>
+<div class="content">
+<img src="{{article.image}}" alt="">
+<p>
+{{article.content}}
+</p>
+<a class="btn btn-info" href="{{path ('article_show' , {'id' : article.id})}}">Read more</a>
+</div>
+</div>
+</article>
+</section>
+
+{% endfor %}
+{% endblock %}
+

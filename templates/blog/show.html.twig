@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %} Blog! {% endblock %}
+{% block body %}
+<style>
+ .articles{
+    border-radius:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    padding:16px 20px;
+ }
+
+  img{
+    border-radius:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    margin:10px;
+  }
+</style>
+ <h1> Blog Page</h1>
+
+<section class="articles mt-5">
+<article class="mb-5">
+<h2>{{article.title}}</h2>
+<div class="metadata">
+write on date *** at ***
+<span class="badge badge-danger">
+***
+</span>
+<div class="content">
+<img src="***" alt="">
+<p>
+************
+</p>
+<a class="btn btn-info" href="#">Read more</a>
+</div>
+</div>
+</article>
+</section>
+{% endblock %}
